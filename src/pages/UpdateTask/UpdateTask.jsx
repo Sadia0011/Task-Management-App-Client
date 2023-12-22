@@ -23,7 +23,7 @@ const UpdateTask = () => {
       const {user}=useContext(AuthContext)
       const email=user?.email
       useEffect(()=>{
-        fetch(`http://localhost:5000/updatetask/${id}`)
+        fetch(`https://task-management-server-nine-woad.vercel.app/updatetask/${id}`)
         .then(res=>res.json())
         .then(data=>{
          setUpdateTask(data)
@@ -44,7 +44,7 @@ const UpdateTask = () => {
             email:email,
             status:updateTask.status
           };
-          fetch(`http://localhost:5000/updatetask/${id}`, {
+          fetch(`https://task-management-server-nine-woad.vercel.app/updatetask/${id}`, {
             method: "PUT", // Correct method
             headers: {
               "Content-Type": "application/json",

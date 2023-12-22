@@ -13,7 +13,7 @@ const List = () => {
     const [count,setCount]=useState(0)
     const {user}=useContext(AuthContext)
     useEffect(()=>{
-     fetch(`http://localhost:5000/userAddedtask?email=${user?.email}`)
+     fetch(`https://task-management-server-nine-woad.vercel.app/userAddedtask?email=${user?.email}`)
      .then(res=>res.json())
      .then(data=>{
         console.log("from user added task",data)
@@ -83,7 +83,7 @@ const Section=({status,tasks,setTasks,todo,progress,complete})=>{
 // })
 // }
 const addItemToSection = (id) => {
-    fetch(`http://localhost:5000/updateTaskStatus/${id}`, {
+    fetch(`https://task-management-server-nine-woad.vercel.app/updateTaskStatus/${id}`, {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json'
@@ -144,7 +144,7 @@ const Task=({task,setTasks,tasks})=>{
       }))
     const handleRemove=async(id)=>{
 console.log(id)
-const res=await fetch(`http://localhost:5000/deletetask/${id}`, {
+const res=await fetch(`https://task-management-server-nine-woad.vercel.app/deletetask/${id}`, {
     method: 'DELETE',
   });
   if (res.ok) {

@@ -22,7 +22,7 @@ const email=user?.email
         email:email,
         status:"todo"
       };
-      fetch("http://localhost:5000/addtask", {
+      fetch("https://task-management-server-nine-woad.vercel.app/addtask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

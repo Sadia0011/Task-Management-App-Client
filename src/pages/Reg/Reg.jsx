@@ -37,7 +37,7 @@ const Reg = () => {
       const result = await createUser(profile, email, password)
         .then(async (result) => {
           console.log(result);
-          const response=await fetch("http://localhost:5000/user",{
+          const response=await fetch("https://task-management-server-nine-woad.vercel.app/user",{
             method: 'POST',
         headers: {
           'Content-Type': 'application/json'

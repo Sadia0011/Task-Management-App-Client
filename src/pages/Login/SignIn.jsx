@@ -43,7 +43,7 @@ const SignIn = () => {
         };
   
         // Assuming you want to send user information to the server
-        return fetch("http://localhost:5000/user", {
+        return fetch("https://task-management-server-nine-woad.vercel.app/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
