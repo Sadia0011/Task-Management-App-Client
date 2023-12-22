@@ -22,7 +22,7 @@ const Reg = () => {
         photoURL: photoURL,
       };
   
-      console.log(profile, email, password);
+      console.log(displayName,photoURL, email, password);
       // password validation
       if (password.length < 6) {
         return toast("Password should be at least 6 characters long.");

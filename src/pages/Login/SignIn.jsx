@@ -33,18 +33,43 @@ const SignIn = () => {
   //   // google sign in
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then((result) => {
+      .then(result => {
         console.log(result);
+  
+        const userInfo = {
+          displayName: result.user?.displayName,
+          photoURL: result.user?.photoURL,
+          email: result.user?.email,
+        };
+  
+        // Assuming you want to send user information to the server
+        return fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        });
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('User information posted to MongoDB');
+        } else {
+          throw new Error('Failed to post user information to MongoDB');
+        }
+  
         toast("Successfully logged in");
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
         }, 2000);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error);
-        toast.error("email or password don't match.please try again");
+        toast.error("An error occurred during Google sign-in. Please try again.");
       });
   };
+  
+  
   
   return (
     <div>

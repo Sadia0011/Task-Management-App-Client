@@ -30,11 +30,11 @@ const Profile = () => {
         <div className='flex flex-col justify-start items-center space-y-6'>
             <div className="avatar">
   <div className="w-24 rounded-full">
-    <img src={userData?.profile?.photoURL} />
+    <img src={userData?.photoURL} />
   </div>
 </div>
 <div>
-    <h2 className='text-lg'><span className='font-semibold'>Name:</span> {userData?.profile?.displayName}</h2>
+    <h2 className='text-lg'><span className='font-semibold'>Name:</span> {userData?.displayName}</h2>
     <h2 className='text-lg'><span className='font-semibold'>Email:</span> {userData?.email}</h2>
 </div>
         </div>
